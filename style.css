@@ -2,3 +2,43 @@ html {
   background-color: black;
   color: white;
 }
+
+body {
+  background-color: black;
+  color: white;
+}
+
+main {
+  display: flex;
+  min-height: 100vh;
+}
+
+form {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.task {
+  flex: 5;
+}
+
+.capture {
+  flex: 3;
+}
+
+.fa-star {
+  cursor: pointer;
+}
+footer {
+  margin-bottom: auto;
+  text-align: center;
+  font-size: larger;
+}
+
+.fa-github-alt {
+  color: white;
+}
+
+.fa-plus-square {
+  font-size: x-large;
+}
