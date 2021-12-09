@@ -1,16 +1,29 @@
 html {
-  background-color: black;
+  background-color: transparent;
   color: white;
 }
 
 body {
-  background-color: black;
+  background-image: linear-gradient( rgb(0, 255, 242),rgb(17, 233, 218),rgb(54, 197, 241));
   color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  display: flex;
+  height: 8vh;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5em;
+  font-weight: 600;
+  background-color: rgba(139, 139, 233, 0.349);
+  border-radius: 0 0 1.5rem 1.5rem;
 }
 
 main {
   display: flex;
-  min-height: 100vh;
 }
 
 form {
@@ -18,7 +31,18 @@ form {
   flex-wrap: wrap;
 }
 
-.task {
+.form-control, .form-group label {
+  margin-bottom: 1rem;
+}
+
+.tasks, .capture {
+  background-color: rgba(139, 139, 233, 0.349);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  margin: 1rem;
+}
+
+.tasks {
   flex: 5;
 }
 
@@ -29,16 +53,55 @@ form {
 .fa-star {
   cursor: pointer;
 }
+
 footer {
-  margin-bottom: auto;
+  height: 5vh;
+  margin-top: auto;
   text-align: center;
   font-size: larger;
+  background-color: rgba(139, 139, 233, 0.349);
+  border-radius: 1.5rem 1.5rem 0 0;
+  padding-top: 1rem;
 }
 
 .fa-github-alt {
   color: white;
 }
 
-.fa-plus-square {
-  font-size: x-large;
+.fa-plus {
+  font-size: xx-large;
+  display: block;
+  align-items: center;
+  justify-content: center;
+}
+
+#addBtn {
+  text-align: center;
+}
+
+.task-card {
+  display: flex;
+  margin-bottom: 12px;
+  padding: 10px;
+  align-items: center;
+}
+
+.task-card i {
+  flex: 1;
+}
+
+.task-card .info {   
+  flex: 5;
+  margin-right: 1.5rem;
+  max-width: 45%;
+}
+
+.task-card .info p {
+  margin-bottom: 0;
+}
+
+.task-card .details {
+  display: flex;
+  flex: 2;
+  flex-direction: column;
 }
