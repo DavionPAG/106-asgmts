@@ -19,7 +19,26 @@ class Task {
     this.status = status;
     this.userColor = userColor;
     this.category = category;
+    this.name = 'Davion';
   }
+}
+
+function loadTasks() {
+  $.ajax({
+    url: 'https://fsdiapi.azurewebsites.net/api/tasks',
+    type: 'GET',
+    success: (data) => {
+      let tasks = JSON.parse(data)
+
+      tasks.forEach(task => {
+        if (task.name == 'Davion' && task.title > '') {
+        renderTask(task)
+        }
+      });
+    },
+    error: (e) => console.log(e)
+  })
+
 }
 
 function added() {
@@ -36,7 +55,17 @@ function added() {
   let category = $('#category').val()
 
   newTask = new Task(pri, title, desc, dd, status, userColor, category)
-  console.log(newTask)
+  strTask = JSON.stringify(newTask)
+
+  $.ajax({
+    url: 'https://fsdiapi.azurewebsites.net/api/tasks',
+    type: 'POST',
+    data: strTask,
+    contentType: 'application/json',
+    success: (res) => console.log(res),
+    error: (e) => console.log(e)
+  })
+
   renderTask(newTask)
   clearForm()
 }
@@ -57,6 +86,8 @@ function renderTask(task) {
     </div>
     </div>`
   )
+
+  $('.taskTotal').text(`Total Tasks:  ${$('.task-card').length}`)
 }
 
 function clearForm() {
@@ -94,6 +125,8 @@ function init() {
   formSect = $('.capture')
   hideBtn = $('.fa-eye-slash')
   hideBtn.click(hideForm)
+
+  loadTasks()
 }
 
 window.onload = init;
